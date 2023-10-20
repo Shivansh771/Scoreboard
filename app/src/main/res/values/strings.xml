@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Scoreboard</string>
+    <string name="title_Test">Tests</string>
+    <string name="title_score">Scores</string>
+    <string name="title_discuss">Discuss</string>
+</resources>
