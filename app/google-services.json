@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "611145901205",
+    "project_id": "scoreboard-c17be",
+    "storage_bucket": "scoreboard-c17be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611145901205:android:f02380daf6f9ab916d279c",
+        "android_client_info": {
+          "package_name": "pro.shivansh.scoreboard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOdwB92vL1piwUOu1iswox1ir-M-r_L3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

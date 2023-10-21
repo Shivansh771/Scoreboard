@@ -13,6 +13,24 @@
         android:theme="@style/Theme.Scoreboard"
         tools:targetApi="31">
         <activity
+            android:name=".otpActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".PhoneActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
