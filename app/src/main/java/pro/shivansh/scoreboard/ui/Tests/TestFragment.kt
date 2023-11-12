@@ -10,15 +10,18 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import pro.shivansh.scoreboard.PhoneActivity
+import pro.shivansh.scoreboard.data.testData
 import pro.shivansh.scoreboard.databinding.FragmentTestsBinding
 
 class TestFragment : Fragment() {
     private lateinit var auth:FirebaseAuth
     private lateinit var signOutBtn:Button
     private var _binding: FragmentTestsBinding? = null
-
+    private lateinit var recyclerView: RecyclerView
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -34,10 +37,7 @@ class TestFragment : Fragment() {
         _binding = FragmentTestsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        testViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+
         return root
     }
 
@@ -49,6 +49,11 @@ class TestFragment : Fragment() {
             auth.signOut()
             startActivity(Intent(requireActivity(),PhoneActivity::class.java))
         }
+        recyclerView=binding.rvTest
+        recyclerView.layoutManager=LinearLayoutManager(requireContext())
+        val data=ArrayList<testData>()
+
+
     }
 
     override fun onDestroyView() {
