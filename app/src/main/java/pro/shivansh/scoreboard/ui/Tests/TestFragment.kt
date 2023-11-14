@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.api.Distribution.BucketOptions.Linear
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -22,6 +23,7 @@ import pro.shivansh.scoreboard.PhoneActivity
 import pro.shivansh.scoreboard.adapter.testAdapter
 import pro.shivansh.scoreboard.data.testData
 import pro.shivansh.scoreboard.databinding.FragmentTestsBinding
+import pro.shivansh.scoreboard.firebase.Firestore
 
 class TestFragment : Fragment() {
     private lateinit var auth:FirebaseAuth
@@ -44,12 +46,13 @@ class TestFragment : Fragment() {
         _binding = FragmentTestsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Firestore().getTestList(this)
+
         auth=FirebaseAuth.getInstance()
         signOutBtn=binding.button
         signOutBtn.setOnClickListener{
@@ -79,6 +82,17 @@ class TestFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    fun populateTestListToUI(testList:ArrayList<testData>){
+        recyclerView=binding.rvTest
+        if(testList.size>0){
+            recyclerView.layoutManager=LinearLayoutManager(requireContext())
+            recyclerView.setHasFixedSize(true)
+            val adapter=testAdapter(testList)
+            recyclerView.adapter=adapter
+
+        }
+
     }
 }
 
