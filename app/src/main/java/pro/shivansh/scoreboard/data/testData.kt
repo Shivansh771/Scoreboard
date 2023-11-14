@@ -1,3 +1,3 @@
 package pro.shivansh.scoreboard.data
 
-data class testData(val testName:String,val testDate:String)
+data class testData(var testName:String, var testDate:String)
